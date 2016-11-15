@@ -1,0 +1,4 @@
+sh
+click<=6.6
+gdapi-python
+

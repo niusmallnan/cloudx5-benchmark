@@ -1,0 +1,5 @@
+benchmark-app:
+  tty: true
+  image: nginx
+  stdin_open: true
+
