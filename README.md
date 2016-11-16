@@ -12,6 +12,7 @@ benchmark for cloudx5
 ## use cx5bench
 
     # config cx5bench
+    # please use rancher account apikey
     cx5bench config
     
     # create envs
