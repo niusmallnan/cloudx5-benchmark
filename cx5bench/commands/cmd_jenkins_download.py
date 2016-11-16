@@ -6,7 +6,7 @@ import subprocess
 from cx5bench.cli import pass_context
 
 
-@click.command('server-stress', short_help='Rancher Server stress tests')
+@click.command('server-stress', short_help='Jenkins download stress test')
 @click.argument('shell_file', type=click.Path(exists=True))
 @click.option('--concurrency', '-c', default='10',
               help='Number of multiple requests to make at a time')
