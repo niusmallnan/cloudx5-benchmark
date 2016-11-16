@@ -19,7 +19,7 @@ def cli(ctx, url, requests, concurrency):
     ex:
 
     \b
-        cx5bench server-stress 10
+        cx5bench server-stress -n 100 -c 10
     """
     print(ab('-n', requests, '-c', concurrency, url))
 
