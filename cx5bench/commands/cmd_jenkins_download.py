@@ -17,7 +17,7 @@ def cli(ctx, shell_file, concurrency):
     ex:
 
     \b
-        cx5bench jenkins-download -c 10
+        cx5bench jenkins-download <shell-file> -c 10
     """
     for i in range(int(concurrency)):
         cmd = '%s %s' % (shell_file, i)

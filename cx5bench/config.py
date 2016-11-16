@@ -4,6 +4,7 @@ import os
 import gdapi
 import json
 
+from time import sleep
 from urlparse import urljoin
 
 
@@ -61,7 +62,7 @@ class CattleClient(object):
                 conf = {'url':env_url, 'access_key':access_key,
                         'secret_key':secret_key}
                 conf_file.writelines(json.dumps(conf))
-
+            sleep(1)
             return gdapi.Client(url=env_url,
                                 access_key=access_key,
                                 secret_key=secret_key)
