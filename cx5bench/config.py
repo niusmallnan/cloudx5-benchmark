@@ -8,6 +8,8 @@ from time import sleep
 from urlparse import urljoin
 
 
+RESULT_LIMIT = -1
+
 ENV_FREFIX = 'benchmark'
 ENV_FMT = ENV_FREFIX + '_%s'
 

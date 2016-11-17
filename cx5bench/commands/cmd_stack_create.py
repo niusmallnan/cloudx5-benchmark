@@ -27,24 +27,21 @@ def cli(ctx, count, env, docker_compose, rancher_compose):
         empty = True
 
     client = config.get_env_client(env)
-    bench_stack_list = []
     if empty:
         for surfix in range(int(count)):
             stack_name=config.STACK_FMT % surfix
-            client.create_environment(name=stack_name)
-            bench_stack_list.append(stack_name)
+            stack = client.create_environment(name=stack_name)
+            print('create testing stack data: %s, %s' % (stack.id, stack.name))
     else:
         docker_cp = docker_compose.read()
         rancher_cp = rancher_compose.read()
         for surfix in range(int(count)):
             stack_name=config.STACK_FMT % surfix
-            client.create_environment(name=stack_name,
-                                      startOnCreate=True,
-                                      dockerCompose=docker_cp,
-                                      rancherCompose=rancher_cp)
-            bench_stack_list.append(stack_name)
-
-    print('\n'.join(bench_stack_list))
+            stack = client.create_environment(name=stack_name,
+                                              startOnCreate=True,
+                                              dockerCompose=docker_cp,
+                                              rancherCompose=rancher_cp)
+            print('create testing stack data: %s, %s' % (stack.id, stack.name))
 
 
 __command_name__ = 'stack-create'

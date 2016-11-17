@@ -11,7 +11,7 @@ from cx5bench.cli import pass_context
 def cli(ctx):
     """Clean test data"""
     client = config.get_global_client()
-    for env in client.list_project():
+    for env in client.list_project(limit=config.RESULT_LIMIT):
         if env.name.startswith(config.ENV_FREFIX):
             print('remove testing env data: %s, %s' % (env.id, env.name))
             if env.state == 'active':

@@ -12,7 +12,7 @@ from cx5bench.cli import pass_context
 def cli(ctx, env):
     """Clean test data"""
     client = config.get_env_client(env)
-    for stack in client.list_environment():
+    for stack in client.list_environment(limit=config.RESULT_LIMIT):
         if stack.name.startswith(config.STACK_FREFIX):
             print('remove testing stack data: %s, %s' % (stack.id, stack.name))
             client.delete(stack)

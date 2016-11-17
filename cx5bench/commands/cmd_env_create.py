@@ -20,13 +20,10 @@ def cli(ctx, count):
 
     """
     client = config.get_global_client()
-    bench_env_list = []
     for surfix in range(int(count)):
         env_name=config.ENV_FMT % surfix
-        client.create_project(name=env_name, description=config.ENV_FREFIX)
-        bench_env_list.append(env_name)
-
-    print('\n'.join(bench_env_list))
+        env = client.create_project(name=env_name, description=config.ENV_FREFIX)
+        print('create testing env data: %s, %s' % (env.id, env.name))
 
 
 __command_name__ = 'env-create'
